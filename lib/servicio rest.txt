@@ -1,0 +1,19 @@
+Servicio rest end point para notificaciones push
+https://fcm.googleapis.com/fcm/send
+
+json:
+{
+	"to":"",
+	"notification":{
+		"title":"Postman",
+		"body":"Body desde postman"
+	},
+	"data":{
+		"comida":"Comida desde postman"
+	}
+}
+
+
+key: Authorization
+value:
+key=AAAA2f9rf3c:APA91bH3BGCnWqrWoQ9nQ0Kcar1vRQQMlFLBnC2_qzFf1ll0rdbetOBP9jRyFC9mEZy1ts9bZuo7HmI_e6kow9SvUwJblB_SWM9dsXyCEEAM1vxZ_jHdVtHpg19JxtM5CyqIVmbpOUnA
