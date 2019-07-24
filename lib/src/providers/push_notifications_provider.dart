@@ -1,8 +1,7 @@
 //Ayuda a expandir la aplicacion con alguna funcionalidad (el archivo provider)
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'dart:async';
 import 'dart:io';
-
-import 'package:firebase_messaging/firebase_messaging.dart';
 
 class PushNotificationProvider{
   //Inicializar las notificaciones
@@ -44,12 +43,15 @@ class PushNotificationProvider{
         }
         _mensajeStreamController.sink.add(argumento);
       },
-      //Recibir las notificaciones
+      
+      //Cuando la aplicacion ya está terminada
       onLaunch: (info){
         print('====== On Launch =======');
         print(info);
         
       },
+      //Recibir las notificaciones en segundo plano
+      //Cuando la aplicacion está en segundo plano
       onResume: (info){
         print('====== On Resume =======');
         print(info);
@@ -61,8 +63,10 @@ class PushNotificationProvider{
         }else{
           argumento = info['comida'] ?? 'no-data-ios';
         }
-
-        _mensajeStreamController.sink.add(argumento);
+        final noti = info['data']['comida'];
+        //Escucha y agrega la informacion de la notificacion que trae el argumento
+        //Por lo cual va a navegar a la pantalla y mostrar la información recibida
+        _mensajeStreamController.sink.add(noti);
       },
     );
   }

@@ -15,11 +15,12 @@ class _MyAppState extends State<MyApp> {
   //Inicializamos la clase PushNotificationProvider
   @override
   void initState() {
-    //// TODO: implement initState
+    // TODO: implement initState
     super.initState();
     final pushProvider = PushNotificationProvider();
     //Lanzamos el pushProvider
     pushProvider.initNotifications();
+    //Aquí se maneja la informacion a mostrar, un alert, entre otras cosas
     pushProvider.mensajes.listen((data){
       //Navigator.pushNamed(context, 'mensaje');
       print('Argumento del push');
